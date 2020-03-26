@@ -1,10 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace jeudontonestlehero.Core.Data
+namespace jeudontonestlehero.Core.Data.Models
 {
+    /// <summary>
+    /// Nom de la table dans SQLExpress
+    /// </summary>
+    [Table("Aventure")]
     public class Aventure
     {
         #region Proprietes

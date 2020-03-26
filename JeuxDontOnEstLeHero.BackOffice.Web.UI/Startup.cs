@@ -8,6 +8,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
+using Microsoft.EntityFrameworkCore;
+using jeudontonestlehero.Core.Data.Models;
+
 namespace JeuxDontOnEstLeHero.BackOffice.Web.UI
 {
     public class Startup
@@ -22,6 +25,9 @@ namespace JeuxDontOnEstLeHero.BackOffice.Web.UI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            string connectionString = this.Configuration.GetConnectionString("DefaultContext");
+            services.AddDbContext<DefaultContext>(options => options.UseSqlServer(connectionString));
+
             services.AddControllersWithViews();
         }
 

@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JeuxDontOnEstLeHero.BackOff
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PremierTestAvecEFCoreCodeFirst", "PremierTestAvecEFCoreCodeFirst\PremierTestAvecEFCoreCodeFirst.csproj", "{6929AED2-C14C-42F2-8500-B3940FC99C70}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestAuthentificationFacebook", "TestAuthentificationFacebook\TestAuthentificationFacebook.csproj", "{D38A7043-D1C7-44D0-9699-D71D2237AFCC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{6929AED2-C14C-42F2-8500-B3940FC99C70}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6929AED2-C14C-42F2-8500-B3940FC99C70}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6929AED2-C14C-42F2-8500-B3940FC99C70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D38A7043-D1C7-44D0-9699-D71D2237AFCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D38A7043-D1C7-44D0-9699-D71D2237AFCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D38A7043-D1C7-44D0-9699-D71D2237AFCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D38A7043-D1C7-44D0-9699-D71D2237AFCC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -44,6 +50,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{8784439E-665B-4796-AA04-96B34DA98402} = {9AE9C2E4-260B-4D35-84F7-3ACE264EE35B}
 		{6929AED2-C14C-42F2-8500-B3940FC99C70} = {A674F8AE-4EF6-444E-9BFC-A652BE8EADAA}
+		{D38A7043-D1C7-44D0-9699-D71D2237AFCC} = {A674F8AE-4EF6-444E-9BFC-A652BE8EADAA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DD232F97-503E-4089-9DC6-A2ABAC7CF9B6}

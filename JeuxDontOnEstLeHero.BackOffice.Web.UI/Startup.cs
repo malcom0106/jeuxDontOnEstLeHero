@@ -43,6 +43,7 @@ namespace JeuxDontOnEstLeHero.BackOffice.Web.UI
                 app.UseExceptionHandler("/Home/Error");
             }
             app.UseStaticFiles();
+            app.UseAuthentication();
 
             app.UseRouting();
 
@@ -50,6 +51,9 @@ namespace JeuxDontOnEstLeHero.BackOffice.Web.UI
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllers();
+                endpoints.MapRazorPages();
+
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");

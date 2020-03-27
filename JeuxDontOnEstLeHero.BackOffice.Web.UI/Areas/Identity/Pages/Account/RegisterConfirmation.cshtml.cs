@@ -1,22 +1,21 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using System.Text;
 using System.Threading.Tasks;
+using JeuxDontOnEstLeHero.BackOffice.Web.UI.Areas.Identity.Data;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
-using TestAuthentificationFacebook.Areas.Identity.Data;
-using Microsoft.AspNetCore.Identity;
 
-namespace TestAuthentificationFacebook.Areas.Identity.Pages.Account
+namespace JeuxDontOnEstLeHero.BackOffice.Web.UI.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
     public class RegisterConfirmationModel : PageModel
     {
-        private readonly UserManager<TestAuthentificationFacebookUser> _userManager;
+        private readonly UserManager<UserFacebook> _userManager;
         private readonly IEmailSender _sender;
 
-        public RegisterConfirmationModel(UserManager<TestAuthentificationFacebookUser> userManager, IEmailSender sender)
+        public RegisterConfirmationModel(UserManager<UserFacebook> userManager, IEmailSender sender)
         {
             _userManager = userManager;
             _sender = sender;

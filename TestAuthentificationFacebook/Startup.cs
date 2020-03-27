@@ -22,6 +22,15 @@ namespace TestAuthentificationFacebook
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var ApiID = this.Configuration["apis:facebook:id"];
+            var ApiSecret = this.Configuration["apis:facebook:secret"];
+
+            services.AddAuthentication().AddFacebook(options => 
+            {
+                options.AppId = ApiID;
+                options.AppSecret = ApiSecret;
+            });
+
             services.AddControllersWithViews();
         }
 
@@ -44,6 +53,9 @@ namespace TestAuthentificationFacebook
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllers();
+                endpoints.MapRazorPages();
+
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");

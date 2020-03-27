@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace jeudontonestlehero.Core.Data.Models
 {
+    //Evite de creer paragraphe avec un S en BDD
     [Table("Paragraphe")]
     public class Paragraphe
     {
@@ -12,6 +14,7 @@ namespace jeudontonestlehero.Core.Data.Models
         /// <summary>
         /// Id venant de la BDD
         /// </summary>
+        [Key]
         public int ParagrapheID { get; set; }
 
         /// <summary>
@@ -32,7 +35,6 @@ namespace jeudontonestlehero.Core.Data.Models
         /// <summary>
         /// Question du paragraphe
         /// </summary>
-        [NotMapped]
         public Question maQuestion { get; set; }
 
         #endregion

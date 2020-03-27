@@ -25,6 +25,14 @@ namespace JeuxDontOnEstLeHero.BackOffice.Web.UI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var FacebookID = this.Configuration["apis:facebook:id"];
+            var FacebookSecret = this.Configuration["apis:facebook:secret"];
+            services.AddAuthentication().AddFacebook(options =>
+            {
+                options.AppId = FacebookID;
+                options.AppSecret = FacebookSecret;
+            });
+
             string connectionString = this.Configuration.GetConnectionString("DefaultContext");
             services.AddDbContext<DefaultContext>(options => options.UseSqlServer(connectionString));
 

@@ -22,16 +22,19 @@ namespace TestAuthentificationFacebook
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddControllersWithViews();
+
             var ApiID = this.Configuration["apis:facebook:id"];
             var ApiSecret = this.Configuration["apis:facebook:secret"];
 
-            services.AddAuthentication().AddFacebook(options => 
+            services.AddAuthentication().AddFacebook(options =>
             {
                 options.AppId = ApiID;
                 options.AppSecret = ApiSecret;
+                //options.CallbackPath = "/Identity/Account/Login";
             });
 
-            services.AddControllersWithViews();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,7 +50,9 @@ namespace TestAuthentificationFacebook
             }
             app.UseStaticFiles();
 
+
             app.UseRouting();
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

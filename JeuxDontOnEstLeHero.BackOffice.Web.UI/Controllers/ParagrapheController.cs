@@ -44,8 +44,7 @@ namespace JeuxDontOnEstLeHero.BackOffice.Web.UI.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Edit(Paragraphe paragraphe)
         {
-            Paragraphe paragraphe1 = this._context.Paragraphes.Find(paragraphe.ParagrapheID);
-            paragraphe1 = paragraphe;
+            this._context.Update(paragraphe);
             this._context.SaveChanges();
             return View(paragraphe);
         }

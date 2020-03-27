@@ -3,19 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29905.134
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebMCVApplication", "WebMCVApplication\WebMCVApplication.csproj", "{EE098D12-223E-4C4E-83EA-A04077706B3C}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Exemples", "Exemples", "{A674F8AE-4EF6-444E-9BFC-A652BE8EADAA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JeuxDontOnEstLeHero.Web.UI", "JeuxDontOnEstLeHero.Web.UI\JeuxDontOnEstLeHero.Web.UI.csproj", "{638ACDAB-2E7F-4167-9337-D7707FC395D3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JeuxDontOnEstLeHero.Web.UI", "JeuxDontOnEstLeHero.Web.UI\JeuxDontOnEstLeHero.Web.UI.csproj", "{638ACDAB-2E7F-4167-9337-D7707FC395D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "jeudontonestlehero.Core.Data", "jeudontonestlehero.Core.Data\jeudontonestlehero.Core.Data.csproj", "{8784439E-665B-4796-AA04-96B34DA98402}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "jeudontonestlehero.Core.Data", "jeudontonestlehero.Core.Data\jeudontonestlehero.Core.Data.csproj", "{8784439E-665B-4796-AA04-96B34DA98402}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libs", "Libs", "{9AE9C2E4-260B-4D35-84F7-3ACE264EE35B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JeuxDontOnEstLeHero.BackOffice.Web.UI", "JeuxDontOnEstLeHero.BackOffice.Web.UI\JeuxDontOnEstLeHero.BackOffice.Web.UI.csproj", "{E8AED78A-62B7-4DF6-B274-ED2EED66A4CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JeuxDontOnEstLeHero.BackOffice.Web.UI", "JeuxDontOnEstLeHero.BackOffice.Web.UI\JeuxDontOnEstLeHero.BackOffice.Web.UI.csproj", "{E8AED78A-62B7-4DF6-B274-ED2EED66A4CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PremierTestAvecEFCoreCodeFirst", "PremierTestAvecEFCoreCodeFirst\PremierTestAvecEFCoreCodeFirst.csproj", "{6929AED2-C14C-42F2-8500-B3940FC99C70}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PremierTestAvecEFCoreCodeFirst", "PremierTestAvecEFCoreCodeFirst\PremierTestAvecEFCoreCodeFirst.csproj", "{6929AED2-C14C-42F2-8500-B3940FC99C70}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +21,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{EE098D12-223E-4C4E-83EA-A04077706B3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EE098D12-223E-4C4E-83EA-A04077706B3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EE098D12-223E-4C4E-83EA-A04077706B3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EE098D12-223E-4C4E-83EA-A04077706B3C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{638ACDAB-2E7F-4167-9337-D7707FC395D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{638ACDAB-2E7F-4167-9337-D7707FC395D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{638ACDAB-2E7F-4167-9337-D7707FC395D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -48,7 +42,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{EE098D12-223E-4C4E-83EA-A04077706B3C} = {A674F8AE-4EF6-444E-9BFC-A652BE8EADAA}
 		{8784439E-665B-4796-AA04-96B34DA98402} = {9AE9C2E4-260B-4D35-84F7-3ACE264EE35B}
 		{6929AED2-C14C-42F2-8500-B3940FC99C70} = {A674F8AE-4EF6-444E-9BFC-A652BE8EADAA}
 	EndGlobalSection

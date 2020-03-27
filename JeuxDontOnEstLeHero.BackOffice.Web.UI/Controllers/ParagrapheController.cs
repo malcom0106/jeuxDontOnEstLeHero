@@ -9,32 +9,17 @@ namespace JeuxDontOnEstLeHero.BackOffice.Web.UI.Controllers
 {
     public class ParagrapheController : Controller
     {
-        #region A supprimer avec entities
-        private List<Paragraphe> paragraphes = new List<Paragraphe>() {
-            new Paragraphe()
-            {
-                ParagrapheID=1,
-                Numero=1,
-                Description="Description1",
-                Titre = "Titre 1"
-            },
-            new Paragraphe()
-            {
-                ParagrapheID=2,
-                Numero=2,
-                Description="Description2",
-                Titre = "Titre 2"
-            },
-            new Paragraphe()
-            {
-                ParagrapheID=3,
-                Numero=3,
-                Description="Description3",
-                Titre = "Titre 3"
-            },
-        };
+        #region Variable Globale
+        private readonly DefaultContext _context = null;
         #endregion
 
+        #region Constructeur
+        public ParagrapheController(DefaultContext context)
+        {
+            this._context = context;
+        }
+        #endregion
+        
         #region Méthodes Publiques
         public IActionResult Create()
         {
@@ -44,19 +29,24 @@ namespace JeuxDontOnEstLeHero.BackOffice.Web.UI.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(Paragraphe paragraphe)
         {
+            this._context.Paragraphes.Add(paragraphe);
+            this._context.SaveChanges();
+
             return View(paragraphe);
         }
 
 
         public IActionResult Edit(int id)
-        {
-            Paragraphe paragraphe = paragraphes.Where(p => p.ParagrapheID == id).FirstOrDefault();
-            return View(paragraphe);
+        {            
+            return View(this._context.Paragraphes.Find(id));
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Edit(Paragraphe paragraphe)
         {
+            Paragraphe paragraphe1 = this._context.Paragraphes.Find(paragraphe.ParagrapheID);
+            paragraphe1 = paragraphe;
+            this._context.SaveChanges();
             return View(paragraphe);
         }
 

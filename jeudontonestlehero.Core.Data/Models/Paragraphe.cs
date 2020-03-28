@@ -20,19 +20,22 @@ namespace jeudontonestlehero.Core.Data.Models
         /// <summary>
         /// Numero à afficher dans le jeu
         /// </summary>
-        [Required]
+        [Required]  
+        [Range(0,999999)]
         public int Numero { get; set; }
 
         /// <summary>
         /// Titre du paragraphe
         /// </summary>
         [Required]
+        [StringLength(50)]
         public string Titre { get; set; }
 
         /// <summary>
         /// Description du paragraphe
         /// </summary>
         [Required]
+        [StringLength(255)]
         public string Description { set; get; }
 
         /// <summary>

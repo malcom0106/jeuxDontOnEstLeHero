@@ -29,9 +29,11 @@ namespace JeuxDontOnEstLeHero.BackOffice.Web.UI.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(Paragraphe paragraphe)
         {
-            this._context.Paragraphes.Add(paragraphe);
-            this._context.SaveChanges();
-
+            if (ModelState.IsValid)
+            {
+                this._context.Paragraphes.Add(paragraphe);
+                this._context.SaveChanges();
+            }
             return View(paragraphe);
         }
 
@@ -44,8 +46,11 @@ namespace JeuxDontOnEstLeHero.BackOffice.Web.UI.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Edit(Paragraphe paragraphe)
         {
-            this._context.Update(paragraphe);
-            this._context.SaveChanges();
+            if (ModelState.IsValid)
+            {
+                this._context.Update(paragraphe);
+                this._context.SaveChanges();
+            }
             return View(paragraphe);
         }
 

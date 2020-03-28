@@ -24,12 +24,18 @@ namespace jeudontonestlehero.Core.Data.Models
         /// <summary>
         /// Foreign Key 
         /// </summary>
-        public int ParagrapheID { get; set; }
+        public int ParagrapheId { get; set; }
 
+
+        /// <summary>
+        /// Foreign Key 
+        /// </summary>
+        public int ReponseId { get; set; }
         /// <summary>
         /// Liste des reponse de cette question
         /// </summary>
         public List<Reponse> MesReponses { get; set; }
+
         #endregion
 
     }

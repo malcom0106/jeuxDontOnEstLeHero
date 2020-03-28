@@ -31,4 +31,3 @@ namespace jeudontonestlehero.Core.Data
         }
     }
 }
-}

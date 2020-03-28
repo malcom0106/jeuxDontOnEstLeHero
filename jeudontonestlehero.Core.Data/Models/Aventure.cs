@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ namespace jeudontonestlehero.Core.Data.Models
     public class Aventure
     {
         #region Proprietes
+        [Key]
         public int AventureId { get; set; }
         public string Titre { get; set; }
         public string Description { get; set; }

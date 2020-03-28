@@ -21,6 +21,10 @@ namespace jeudontonestlehero.Core.Data.Models
         /// </summary>
         public string Description { get; set; }
 
+        /// <summary>
+        /// Foreign Key 
+        /// </summary>
+        public int QuestionID { get; set; }
 
         #endregion
     }

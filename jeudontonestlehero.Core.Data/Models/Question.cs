@@ -19,18 +19,9 @@ namespace jeudontonestlehero.Core.Data.Models
         /// <summary>
         /// Intitulé de la question
         /// </summary>
+        [Required]
         public string Titre { get; set; }
 
-        /// <summary>
-        /// Foreign Key 
-        /// </summary>
-        public int ParagrapheId { get; set; }
-
-
-        /// <summary>
-        /// Foreign Key 
-        /// </summary>
-        public int ReponseId { get; set; }
         /// <summary>
         /// Liste des reponse de cette question
         /// </summary>

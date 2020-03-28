@@ -19,12 +19,13 @@ namespace jeudontonestlehero.Core.Data.Models
         /// <summary>
         /// Proposition de réponse
         /// </summary>
+        [Required]
         public string Description { get; set; }
 
         /// <summary>
         /// Foreign Key 
         /// </summary>
-        public int QuestionID { get; set; }
+        public int QuestionId { get; set; }
 
         #endregion
     }

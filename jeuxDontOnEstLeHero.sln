@@ -27,6 +27,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestsUnitaires", "TestsUnit
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestWebUI", "TestWebUI\TestWebUI.csproj", "{B553EB91-B907-42CC-8469-D3E26C027500}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DecouverteSession", "DecouverteSession\DecouverteSession.csproj", "{4DBB422B-6028-49A2-AC24-76CD8A370FA8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,10 @@ Global
 		{B553EB91-B907-42CC-8469-D3E26C027500}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B553EB91-B907-42CC-8469-D3E26C027500}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B553EB91-B907-42CC-8469-D3E26C027500}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DBB422B-6028-49A2-AC24-76CD8A370FA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DBB422B-6028-49A2-AC24-76CD8A370FA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DBB422B-6028-49A2-AC24-76CD8A370FA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DBB422B-6028-49A2-AC24-76CD8A370FA8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -81,6 +87,7 @@ Global
 		{D16625F1-2DD6-4413-B966-E1D687A37DF6} = {A674F8AE-4EF6-444E-9BFC-A652BE8EADAA}
 		{8CBB45D5-4396-4FC9-B8B1-146B331D6FF1} = {A674F8AE-4EF6-444E-9BFC-A652BE8EADAA}
 		{B553EB91-B907-42CC-8469-D3E26C027500} = {5DE9057E-7FC1-4D22-B3F5-7179AFCDB310}
+		{4DBB422B-6028-49A2-AC24-76CD8A370FA8} = {A674F8AE-4EF6-444E-9BFC-A652BE8EADAA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DD232F97-503E-4089-9DC6-A2ABAC7CF9B6}

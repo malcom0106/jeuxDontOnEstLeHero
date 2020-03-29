@@ -7,19 +7,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace JeuxDontOnEstLeHero.BackOffice.Web.UI.Controllers
 {
-    public class ParagrapheController : Controller
+    public class ParagrapheController : BaseController
     {
-        #region Variable Globale
-        private readonly DefaultContext _context = null;
-        #endregion
-
-        #region Constructeur
-        public ParagrapheController(DefaultContext context)
+        public ParagrapheController(DefaultContext context) : base(context)
         {
-            this._context = context;
         }
-        #endregion
-        
         #region Méthodes Publiques
         public IActionResult Create()
         {

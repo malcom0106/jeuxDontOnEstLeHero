@@ -15,7 +15,7 @@ namespace jeudontonestlehero.Core.Data.Models
         /// Id venant de la BDD
         /// </summary>
         [Key]
-        public int ParagrapheID { get; set; }
+        public int ParagrapheId { get; set; }
 
         /// <summary>
         /// Numero à afficher dans le jeu
@@ -43,6 +43,13 @@ namespace jeudontonestlehero.Core.Data.Models
         /// </summary>
         public Question maQuestion { get; set; }
 
+        public List<Reponse> reponse { get; set; }
+
+        /// <summary>
+        /// Indique si c'est le premier paragraphe
+        /// </summary>
+        public bool EstInitial { get; set; }
         #endregion
+                
     }
 }

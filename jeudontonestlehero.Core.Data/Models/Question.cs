@@ -10,6 +10,7 @@ namespace jeudontonestlehero.Core.Data.Models
     public class Question
     {
         #region Proprietes
+
         /// <summary>
         /// Id venant de la BDD
         /// </summary>
@@ -21,6 +22,11 @@ namespace jeudontonestlehero.Core.Data.Models
         /// </summary>
         [Required]
         public string Titre { get; set; }
+
+        /// <summary>
+        /// Id du paragraphe
+        /// </summary>
+        public int ParagrapheId { get; set; }
 
         /// <summary>
         /// Liste des reponse de cette question

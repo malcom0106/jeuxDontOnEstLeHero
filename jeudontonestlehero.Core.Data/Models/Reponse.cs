@@ -27,6 +27,11 @@ namespace jeudontonestlehero.Core.Data.Models
         /// </summary>
         public int QuestionId { get; set; }
 
+        /// <summary>
+        /// Id du paragraphe suivant
+        /// </summary>
+        public int? ParagrapheId { get; set; }
+
         #endregion
     }
 }

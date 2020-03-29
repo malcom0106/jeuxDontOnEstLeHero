@@ -27,13 +27,19 @@ namespace jeudontonestlehero.Core.Data.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(250)")
+                        .HasMaxLength(250);
 
                     b.Property<string>("Titre")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
 
                     b.Property<string>("TypeAventure")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
 
                     b.HasKey("AventureId");
 
@@ -42,28 +48,28 @@ namespace jeudontonestlehero.Core.Data.Migrations
 
             modelBuilder.Entity("jeudontonestlehero.Core.Data.Models.Paragraphe", b =>
                 {
-                    b.Property<int>("ParagrapheID")
+                    b.Property<int>("ParagrapheId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(255)")
+                        .HasMaxLength(255);
+
+                    b.Property<bool>("EstInitial")
+                        .HasColumnType("bit");
 
                     b.Property<int>("Numero")
                         .HasColumnType("int");
 
                     b.Property<string>("Titre")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
 
-                    b.Property<int?>("maQuestionQuestionId")
-                        .HasColumnType("int");
-
-                    b.HasKey("ParagrapheID");
-
-                    b.HasIndex("maQuestionQuestionId");
+                    b.HasKey("ParagrapheId");
 
                     b.ToTable("Paragraphe");
                 });
@@ -75,11 +81,17 @@ namespace jeudontonestlehero.Core.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("ParagrapheId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Titre")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("QuestionId");
+
+                    b.HasIndex("ParagrapheId")
+                        .IsUnique();
 
                     b.ToTable("Question");
                 });
@@ -95,25 +107,36 @@ namespace jeudontonestlehero.Core.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("ParagrapheId")
+                        .HasColumnType("int");
+
                     b.Property<int>("QuestionId")
                         .HasColumnType("int");
 
                     b.HasKey("ReponseId");
+
+                    b.HasIndex("ParagrapheId");
 
                     b.HasIndex("QuestionId");
 
                     b.ToTable("Reponse");
                 });
 
-            modelBuilder.Entity("jeudontonestlehero.Core.Data.Models.Paragraphe", b =>
+            modelBuilder.Entity("jeudontonestlehero.Core.Data.Models.Question", b =>
                 {
-                    b.HasOne("jeudontonestlehero.Core.Data.Models.Question", "maQuestion")
-                        .WithMany()
-                        .HasForeignKey("maQuestionQuestionId");
+                    b.HasOne("jeudontonestlehero.Core.Data.Models.Paragraphe", null)
+                        .WithOne("maQuestion")
+                        .HasForeignKey("jeudontonestlehero.Core.Data.Models.Question", "ParagrapheId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("jeudontonestlehero.Core.Data.Models.Reponse", b =>
                 {
+                    b.HasOne("jeudontonestlehero.Core.Data.Models.Paragraphe", null)
+                        .WithMany("reponse")
+                        .HasForeignKey("ParagrapheId");
+
                     b.HasOne("jeudontonestlehero.Core.Data.Models.Question", null)
                         .WithMany("MesReponses")
                         .HasForeignKey("QuestionId")

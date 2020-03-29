@@ -10,6 +10,7 @@ using Microsoft.Extensions.Hosting;
 
 using Microsoft.EntityFrameworkCore;
 using jeudontonestlehero.Core.Data.Models;
+using JeuxDontOnEstLeHero.BackOffice.Web.UI.Contraintes;
 
 namespace JeuxDontOnEstLeHero.BackOffice.Web.UI
 {
@@ -61,6 +62,21 @@ namespace JeuxDontOnEstLeHero.BackOffice.Web.UI
             {
                 endpoints.MapControllers();
                 endpoints.MapRazorPages();
+
+                endpoints.MapControllerRoute(
+                    name: "editparagraphe",
+                    pattern: "edition-paragraphe/{id}",
+                    defaults: new 
+                    {
+                        controller = "Paragraphe",
+                        action = "Edit"
+                    },
+                    constraints: new 
+                    { 
+                        //id=@"\d+"
+                        id = new LoginContraintes()
+                    }
+                );
 
                 endpoints.MapControllerRoute(
                     name: "default",

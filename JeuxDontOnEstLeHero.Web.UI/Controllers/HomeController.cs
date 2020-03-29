@@ -18,10 +18,6 @@ namespace JeuxDontOnEstLeHero.Web.UI.Controllers
             _logger = logger;
         }
 
-        public HomeController()
-        {
-        }
-
         public IActionResult Index()
         {
             return View();

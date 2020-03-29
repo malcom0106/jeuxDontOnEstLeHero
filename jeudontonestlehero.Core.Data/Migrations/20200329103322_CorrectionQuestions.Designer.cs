@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using jeudontonestlehero.Core.Data.Models;
 
 namespace jeudontonestlehero.Core.Data.Migrations
 {
     [DbContext(typeof(DefaultContext))]
-    partial class DefaultContextModelSnapshot : ModelSnapshot
+    [Migration("20200329103322_CorrectionQuestions")]
+    partial class CorrectionQuestions
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -41,7 +43,7 @@ namespace jeudontonestlehero.Core.Data.Migrations
 
             modelBuilder.Entity("jeudontonestlehero.Core.Data.Models.Paragraphe", b =>
                 {
-                    b.Property<int>("ParagrapheId")
+                    b.Property<int>("ParagrapheID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -59,7 +61,7 @@ namespace jeudontonestlehero.Core.Data.Migrations
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
 
-                    b.HasKey("ParagrapheId");
+                    b.HasKey("ParagrapheID");
 
                     b.ToTable("Paragraphe");
                 });

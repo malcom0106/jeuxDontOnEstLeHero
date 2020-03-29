@@ -6,6 +6,7 @@ using JeuxDontOnEstLeHero.Web.UI.Models;
 using Microsoft.AspNetCore.Mvc;
 using jeudontonestlehero.Core.Data;
 using jeudontonestlehero.Core.Data.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace JeuxDontOnEstLeHero.Web.UI.Controllers
 {
@@ -26,11 +27,8 @@ namespace JeuxDontOnEstLeHero.Web.UI.Controllers
         {
             ViewBag.Titre = "Aventures";
             ViewBag.SousTitre = "Mes dernières aventures";
-
-            var query = from aventures in context.Aventures
-                        select aventures;
-            
-            return View(query.ToList());
+            List<Aventure> mesAventures = GetAllAventures().Result;
+            return View(mesAventures);
         }
         public IActionResult Create()
         {
@@ -63,6 +61,11 @@ namespace JeuxDontOnEstLeHero.Web.UI.Controllers
                 return RedirectToAction("Index");
             }
             return View(aventure);
+        }
+
+        public async Task<List<Aventure>> GetAllAventures()
+        {
+            return await _context.Aventures.ToListAsync();
         }
     }
 }

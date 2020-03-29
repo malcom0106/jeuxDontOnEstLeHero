@@ -32,5 +32,37 @@ namespace JeuxDontOnEstLeHero.Web.UI.Controllers
             
             return View(query.ToList());
         }
+        public IActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Create(Aventure aventure)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Aventures.Add(aventure);
+                _context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(aventure);
+        }
+
+
+        public IActionResult Edit(int id)
+        {
+            return View(_context.Aventures.Find(id));
+        }
+        [HttpPost]
+        public IActionResult Edit(Aventure aventure)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Aventures.Update(aventure);
+                _context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(aventure);
+        }
     }
 }

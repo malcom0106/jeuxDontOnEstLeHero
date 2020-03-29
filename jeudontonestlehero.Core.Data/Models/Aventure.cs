@@ -16,8 +16,17 @@ namespace jeudontonestlehero.Core.Data.Models
         #region Proprietes
         [Key]
         public int AventureId { get; set; }
+
+        [Required]
+        [StringLength(50)]
         public string Titre { get; set; }
+
+        [Required]
+        [StringLength(250)]
         public string Description { get; set; }
+
+        [Required]
+        [StringLength(50)]
         public string TypeAventure { get; set; }
         #endregion
 

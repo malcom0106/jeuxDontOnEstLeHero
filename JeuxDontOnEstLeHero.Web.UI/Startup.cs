@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
+using JeuxDontOnEstLeHero.Web.UI.Contraintes;
 
 namespace JeuxDontOnEstLeHero.Web.UI
 {
@@ -50,13 +51,38 @@ namespace JeuxDontOnEstLeHero.Web.UI
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
+                    name: "editmonaventure",
+                    pattern: "editer-mon-aventure/{id}",
+                    defaults: new
+                    {
+                        controller = "Aventure",
+                        action = "Edit"
+                    },
+                    constraints: new
+                    {
+                        id = new AventuresContraintes()
+                    }
+                ) ;
+
+                endpoints.MapControllerRoute(
+                    name: "creermonaventure",
+                    pattern: "demarrer-mon-aventure",
+                    defaults: new
+                    {
+                        controller = "Aventure",
+                        action = "Create"
+                    }
+                );
+
+                endpoints.MapControllerRoute(
                     name: "mesaventures",
                     pattern: "mes-aventures",
                     defaults: new
                     {
                         controller = "Aventure",
                         action = "Index"
-                    });
+                    }
+                );
 
                 endpoints.MapControllerRoute(
                     name: "default",

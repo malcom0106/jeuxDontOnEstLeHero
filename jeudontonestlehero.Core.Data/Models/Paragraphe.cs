@@ -43,6 +43,12 @@ namespace jeudontonestlehero.Core.Data.Models
         /// </summary>
         public Question maQuestion { get; set; }
 
+        public List<Reponse> reponse { get; set; }
+
+        /// <summary>
+        /// Indique si c'est le premier paragraphe
+        /// </summary>
+        public bool EstInitial { get; set; }
         #endregion
                 
     }

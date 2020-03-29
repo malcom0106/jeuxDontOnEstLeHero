@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using jeudontonestlehero.Core.Data.Models;
 
 namespace jeudontonestlehero.Core.Data.Migrations
 {
     [DbContext(typeof(DefaultContext))]
-    partial class DefaultContextModelSnapshot : ModelSnapshot
+    [Migration("20200329161908_MaJParagraphe")]
+    partial class MaJParagraphe
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -57,9 +59,6 @@ namespace jeudontonestlehero.Core.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(255)")
                         .HasMaxLength(255);
-
-                    b.Property<bool>("EstInitial")
-                        .HasColumnType("bit");
 
                     b.Property<int>("Numero")
                         .HasColumnType("int");
@@ -115,7 +114,9 @@ namespace jeudontonestlehero.Core.Data.Migrations
 
                     b.HasKey("ReponseId");
 
-                    b.HasIndex("ParagrapheId");
+                    b.HasIndex("ParagrapheId")
+                        .IsUnique()
+                        .HasFilter("[ParagrapheId] IS NOT NULL");
 
                     b.HasIndex("QuestionId");
 
@@ -134,8 +135,8 @@ namespace jeudontonestlehero.Core.Data.Migrations
             modelBuilder.Entity("jeudontonestlehero.Core.Data.Models.Reponse", b =>
                 {
                     b.HasOne("jeudontonestlehero.Core.Data.Models.Paragraphe", null)
-                        .WithMany("reponse")
-                        .HasForeignKey("ParagrapheId");
+                        .WithOne("reponse")
+                        .HasForeignKey("jeudontonestlehero.Core.Data.Models.Reponse", "ParagrapheId");
 
                     b.HasOne("jeudontonestlehero.Core.Data.Models.Question", null)
                         .WithMany("MesReponses")

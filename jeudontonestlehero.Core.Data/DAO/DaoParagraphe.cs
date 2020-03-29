@@ -1,22 +1,25 @@
 ﻿using jeudontonestlehero.Core.Data.Models;
 using System;
 using System.Collections.Generic;
+using System.Text;
 using System.Linq;
-using System.Threading.Tasks;
 
-namespace JeuxDontOnEstLeHero.BackOffice.Web.UI.DAO
+
+namespace jeudontonestlehero.Core.Data.DAO
 {
-    public abstract class DaoAccess
+    class DaoParagraphe
     {
         #region Variable Globale
-        protected DefaultContext _context = null;
+        private readonly DefaultContext _context = null;
         #endregion
 
         #region Constructeur
-        protected DaoAccess(DefaultContext context)
+        public DaoParagraphe(DefaultContext context)
         {
             this._context = context;
         }
         #endregion
+
+
     }
 }

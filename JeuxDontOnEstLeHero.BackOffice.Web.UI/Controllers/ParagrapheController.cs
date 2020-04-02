@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using jeudontonestlehero.Core.Data.Models;
+using jeudontonestlehero.Core.Data.DAO;
 using Microsoft.AspNetCore.Mvc;
 
 namespace JeuxDontOnEstLeHero.BackOffice.Web.UI.Controllers
@@ -13,6 +14,14 @@ namespace JeuxDontOnEstLeHero.BackOffice.Web.UI.Controllers
         {
         }
         #region Méthodes Publiques
+
+        public IActionResult Index()
+        {
+            DaoParagraphe daoParagraphe = new DaoParagraphe();
+
+            return View();
+        }
+
         public IActionResult Create()
         {
             return View();

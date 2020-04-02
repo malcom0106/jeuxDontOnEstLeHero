@@ -29,6 +29,8 @@ namespace JeuxDontOnEstLeHero.Web.UI
             services.AddDbContext<DefaultContext>(options=>options.UseSqlServer(connectionString));
 
             services.AddControllersWithViews();
+
+            services.Add(new ServiceDescriptor(typeof(jeudontonestlehero.Core.Data.DAO.DaoParagraphe),ServiceLifetime.Transient));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

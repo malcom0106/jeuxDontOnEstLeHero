@@ -3,11 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
-
+using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
 
 namespace jeudontonestlehero.Core.Data.DAO
 {
-    class DaoParagraphe
+    public class DaoParagraphe
     {
         #region Variable Globale
         private readonly DefaultContext _context = null;
@@ -20,6 +21,10 @@ namespace jeudontonestlehero.Core.Data.DAO
         }
         #endregion
 
+        public async Task<List<Paragraphe>> GetAllParagraphes()
+        {
+            return await _context.Paragraphes.ToListAsync();
+        }
 
     }
 }

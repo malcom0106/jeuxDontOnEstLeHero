@@ -6,6 +6,8 @@ using JeuxDontOnEstLeHero.Web.UI.Models;
 using Microsoft.AspNetCore.Mvc;
 using jeudontonestlehero.Core.Data;
 using jeudontonestlehero.Core.Data.Models;
+using Microsoft.EntityFrameworkCore;
+using jeudontonestlehero.Core.Data.DAO;
 
 namespace JeuxDontOnEstLeHero.Web.UI.Controllers
 {
@@ -13,24 +15,23 @@ namespace JeuxDontOnEstLeHero.Web.UI.Controllers
     {
         #region Variable Globale
         private readonly DefaultContext _context = null;
+        private readonly DaoParagraphe _daoParagraphe = null;
         #endregion
 
         #region Constructeur
-        public AventureController(DefaultContext context)
+        public AventureController(DefaultContext context, DaoParagraphe daoParagraphe)
         {
             this._context = context;
+            this._daoParagraphe = daoParagraphe;
         }
         #endregion
 
-        public IActionResult Index([FromServices] DefaultContext context)
-        {
+        public IActionResult Index()
+        {            
             ViewBag.Titre = "Aventures";
             ViewBag.SousTitre = "Mes dernières aventures";
-
-            var query = from aventures in context.Aventures
-                        select aventures;
-            
-            return View(query.ToList());
+            List<Aventure> mesAventures = GetAllAventures().Result;
+            return View(mesAventures);
         }
         public IActionResult Create()
         {
@@ -63,6 +64,11 @@ namespace JeuxDontOnEstLeHero.Web.UI.Controllers
                 return RedirectToAction("Index");
             }
             return View(aventure);
+        }
+
+        public async Task<List<Aventure>> GetAllAventures()
+        {
+            return await _context.Aventures.ToListAsync();
         }
     }
 }

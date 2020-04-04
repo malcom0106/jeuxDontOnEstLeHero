@@ -8,18 +8,11 @@ using System.Threading.Tasks;
 
 namespace jeudontonestlehero.Core.Data.DAO
 {
-    public class DaoParagraphe
+    public class DaoParagraphe : DaoAccess
     {
-        #region Variable Globale
-        private readonly DefaultContext _context = null;
-        #endregion
-
-        #region Constructeur
-        public DaoParagraphe(DefaultContext context)
+        public DaoParagraphe(DefaultContext context) : base(context)
         {
-            this._context = context;
         }
-        #endregion
 
         public async Task<List<Paragraphe>> GetAllParagraphes()
         {

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using jeudontonestlehero.Core.Data.DAO;
 using jeudontonestlehero.Core.Data.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,6 +10,17 @@ namespace JeuxDontOnEstLeHero.BackOffice.Web.UI.Controllers
 {
     public class QuestionController : Controller
     {
+        private readonly DaoParagraphe _daoParagraphe = null;
+        private readonly DaoQuestion _daoQuestion = null;
+        private readonly List<Paragraphe> paragraphes = null;
+
+        public QuestionController(DaoParagraphe daoParagraphe, DaoQuestion daoQuestion)
+        {
+            this._daoParagraphe = daoParagraphe;
+            this._daoQuestion = daoQuestion;
+            paragraphes = _daoParagraphe.GetAllParagraphes().Result;
+
+        }
 
         public IActionResult Index()
         {
@@ -16,7 +28,6 @@ namespace JeuxDontOnEstLeHero.BackOffice.Web.UI.Controllers
         }
         public IActionResult Add()
         {
-            List<Paragraphe> paragraphes = _context.Paragraphes.ToList();
             ViewBag.MesParagraghes = paragraphes;
             return View();
         }
@@ -25,10 +36,12 @@ namespace JeuxDontOnEstLeHero.BackOffice.Web.UI.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Questions.Add(maquestion);
-                _context.SaveChanges();
+                if (_daoQuestion.AddQuestion(maquestion).Result)
+                {
+                    return RedirectToAction("Index");
+                }
             }
-            List<Paragraphe> paragraphes = _context.Paragraphes.ToList();
+
             ViewBag.MesParagraghes = paragraphes;
             return View(maquestion);
         }

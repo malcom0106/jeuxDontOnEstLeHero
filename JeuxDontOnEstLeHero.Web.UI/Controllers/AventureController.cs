@@ -14,17 +14,16 @@ namespace JeuxDontOnEstLeHero.Web.UI.Controllers
     public class AventureController : Controller
     {
         #region Variable Globale
-        private readonly DefaultContext _context = null;
         private readonly DaoAventure _daoAventure = null;
         #endregion
 
-        #region Constructeur
-        public AventureController(DefaultContext context, DaoAventure daoAventure)
+        #region Constructeur avec injection de dépendance
+        public AventureController(DaoAventure daoAventure)
         {
-            this._context = context;
             this._daoAventure = daoAventure;
         }
         #endregion
+
 
         public IActionResult Index()
         {
@@ -33,6 +32,9 @@ namespace JeuxDontOnEstLeHero.Web.UI.Controllers
             List<Aventure> mesAventures = _daoAventure.GetAventures().Result;
             return View(mesAventures);
         }
+
+        #region public methode Create
+
         public IActionResult Create()
         {
             return View();
@@ -57,8 +59,9 @@ namespace JeuxDontOnEstLeHero.Web.UI.Controllers
             }
             return View(aventure);
         }
+        #endregion
 
-
+        #region public methode Edit
         public IActionResult Edit(int id)
         {
             Aventure aventure = _daoAventure.GetAventureById(id).Result;
@@ -69,23 +72,20 @@ namespace JeuxDontOnEstLeHero.Web.UI.Controllers
         {
             if (ModelState.IsValid)
             {
-                try {
+                try
+                {
                     if (_daoAventure.EditAventure(aventure).Result)
                     {
                         return RedirectToAction("Index");
-                    }                    
+                    }
                 }
                 catch (Exception ex)
                 {
                     throw ex;
-                }                
+                }
             }
             return View(aventure);
         }
-
-        public async Task<List<Aventure>> GetAllAventures()
-        {
-            return await _context.Aventures.ToListAsync();
-        }
+        #endregion
     }
 }

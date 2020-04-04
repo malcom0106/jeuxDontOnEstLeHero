@@ -7,11 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace JeuxDontOnEstLeHero.BackOffice.Web.UI.Controllers
 {
-    public class ReponseController : BaseController
+    public class ReponseController : Controller
     {
-        public ReponseController(DefaultContext context) : base(context)
-        {
-        }
 
         public IActionResult Add()
         {

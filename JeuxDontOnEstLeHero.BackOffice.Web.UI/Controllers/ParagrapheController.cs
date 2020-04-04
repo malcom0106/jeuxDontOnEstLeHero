@@ -10,17 +10,18 @@ namespace JeuxDontOnEstLeHero.BackOffice.Web.UI.Controllers
 {
     public class ParagrapheController : Controller
     {
-        private readonly DaoParagraphe _doaParagraphe = null;
+        private readonly DaoParagraphe _daoParagraphe = null;
+        private readonly List<Paragraphe> paragraphes = null;
 
         public ParagrapheController(DaoParagraphe daoParagraphe)
         {
-            this._doaParagraphe = daoParagraphe;
+            this._daoParagraphe = daoParagraphe;
+            paragraphes = _daoParagraphe.GetAllParagraphes().Result;
         }
 
         public IActionResult Index()
-        {            
-
-            return View();
+        {
+            return View(paragraphes);
         }
 
         public IActionResult Create()
@@ -33,16 +34,19 @@ namespace JeuxDontOnEstLeHero.BackOffice.Web.UI.Controllers
         {
             if (ModelState.IsValid)
             {
-                this._context.Paragraphes.Add(paragraphe);
-                this._context.SaveChanges();
+                if (_daoParagraphe.CreateParagraphe(paragraphe).Result)
+                {
+                    return RedirectToAction("Index");
+                }
             }
             return View(paragraphe);
         }
 
 
         public IActionResult Edit(int id)
-        {            
-            return View(this._context.Paragraphes.Find(id));
+        {
+            Paragraphe paragraphe = _daoParagraphe.GetParagrapheById(id).Result;
+            return View(paragraphe);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -50,13 +54,13 @@ namespace JeuxDontOnEstLeHero.BackOffice.Web.UI.Controllers
         {
             if (ModelState.IsValid)
             {
-                this._context.Update(paragraphe);
-                this._context.SaveChanges();
+                if (_daoParagraphe.EditParagraphe(paragraphe).Result)
+                {
+                    return RedirectToAction("Index");
+                }
             }
             return View(paragraphe);
         }
-
-        #endregion
 
     }
 }

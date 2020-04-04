@@ -1,4 +1,4 @@
-﻿using JeuxDontOnEstLeHero.BackOffice.Web.UI.DAO;
+﻿using jeudontonestlehero.Core.Data.DAO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
 using System;

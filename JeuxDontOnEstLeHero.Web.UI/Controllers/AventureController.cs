@@ -61,7 +61,8 @@ namespace JeuxDontOnEstLeHero.Web.UI.Controllers
 
         public IActionResult Edit(int id)
         {
-            return View(_context.Aventures.Find(id));
+            Aventure aventure = _daoAventure.GetAventureById(id).Result;
+            return View(aventure);
         }
         [HttpPost]
         public IActionResult Edit(Aventure aventure)

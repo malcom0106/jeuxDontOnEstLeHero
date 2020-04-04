@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace jeudontonestlehero.Core.Data.DAO
 {
-    class DaoAventure : DaoAccess
+    public class DaoAventure : DaoAccess
     {
         public DaoAventure(DefaultContext context) : base(context)
         {
@@ -16,8 +16,30 @@ namespace jeudontonestlehero.Core.Data.DAO
 
         public async Task<List<Aventure>> GetAventures()
         {
-            List<Aventure> aventures = await _context.Aventures.ToListAsync();
-            return aventures;
+            try
+            {
+                List<Aventure> aventures = await _context.Aventures.ToListAsync();
+                return aventures;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<bool> CreateAventure(Aventure aventure)
+        {
+            try
+            {
+                _context.Aventures.Add(aventure);
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
         }
     }
 }

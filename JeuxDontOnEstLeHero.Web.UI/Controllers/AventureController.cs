@@ -15,22 +15,22 @@ namespace JeuxDontOnEstLeHero.Web.UI.Controllers
     {
         #region Variable Globale
         private readonly DefaultContext _context = null;
-        private readonly DaoParagraphe _daoParagraphe = null;
+        private readonly DaoAventure _daoAventure = null;
         #endregion
 
         #region Constructeur
-        public AventureController(DefaultContext context, DaoParagraphe daoParagraphe)
+        public AventureController(DefaultContext context, DaoAventure daoAventure)
         {
             this._context = context;
-            this._daoParagraphe = daoParagraphe;
+            this._daoAventure = daoAventure;
         }
         #endregion
 
         public IActionResult Index()
-        {            
+        {
             ViewBag.Titre = "Aventures";
             ViewBag.SousTitre = "Mes dernières aventures";
-            List<Aventure> mesAventures = GetAllAventures().Result;
+            List<Aventure> mesAventures = _daoAventure.GetAventures().Result;
             return View(mesAventures);
         }
         public IActionResult Create()
@@ -41,10 +41,19 @@ namespace JeuxDontOnEstLeHero.Web.UI.Controllers
         public IActionResult Create(Aventure aventure)
         {
             if (ModelState.IsValid)
-            {                
-                _context.Aventures.Add(aventure);
-                _context.SaveChanges();
-                return RedirectToAction("Index");
+            {
+                try
+                {
+                    if (_daoAventure.CreateAventure(aventure).Result)
+                    {
+                        return RedirectToAction("Index");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    string message = ex.Message;
+                }
+
             }
             return View(aventure);
         }

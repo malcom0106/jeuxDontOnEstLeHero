@@ -30,11 +30,13 @@ namespace JeuxDontOnEstLeHero.BackOffice.Web.UI.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Reponses.Add(reponse);
-                _context.SaveChanges();
+                if (_daoReponse.AddReponse(reponse).IsCompleted)
+                {
+                    return RedirectToAction("Index");
+                }
             }
-            List<Question> questions = _context.Questions.ToList();
-            ViewBag.MesQuestions = questions;
+            
+            ViewBag.MesQuestions = _questions;
             return View(reponse);
         }
     }

@@ -69,9 +69,16 @@ namespace JeuxDontOnEstLeHero.Web.UI.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Aventures.Update(aventure);
-                _context.SaveChanges();
-                return RedirectToAction("Index");
+                try {
+                    if (_daoAventure.EditAventure(aventure).Result)
+                    {
+                        return RedirectToAction("Index");
+                    }                    
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }                
             }
             return View(aventure);
         }

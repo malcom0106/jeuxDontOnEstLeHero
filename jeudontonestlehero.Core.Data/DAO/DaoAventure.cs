@@ -14,6 +14,10 @@ namespace jeudontonestlehero.Core.Data.DAO
         {
         }
 
+        /// <summary>
+        /// Afficher tous les aventures
+        /// </summary>
+        /// <returns>Retourne une Liste d'Aventure</returns>
         public async Task<List<Aventure>> GetAventures()
         {
             try
@@ -56,20 +60,29 @@ namespace jeudontonestlehero.Core.Data.DAO
             Aventure aventure = null;
             try
             {
-                if (id == null)
-                {
-                    aventure = null;
-                }
-                else
-                {
-                    aventure = await _context.Aventures.FindAsync(id);
-                }
+                aventure = await _context.Aventures.FindAsync(id);
             }
             catch (Exception ex)
             {
                 throw ex;
             }
             return aventure;
+        }
+
+        public async Task<bool> EditAventure(Aventure aventure)
+        {
+            bool IsEdited = false;
+
+            try { 
+                _context.Aventures.Update(aventure);
+                await _context.SaveChangesAsync();
+                IsEdited = true;
+            } 
+            catch (Exception ex) {
+                throw ex;
+            }
+
+            return IsEdited;
         }
     }
 }

@@ -11,6 +11,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using jeudontonestlehero.Core.Data.Models;
 using JeuxDontOnEstLeHero.BackOffice.Web.UI.Contraintes;
+using jeudontonestlehero.Core.Data.DAO;
 
 namespace JeuxDontOnEstLeHero.BackOffice.Web.UI
 {
@@ -36,6 +37,11 @@ namespace JeuxDontOnEstLeHero.BackOffice.Web.UI
 
             string connectionString = this.Configuration.GetConnectionString("DefaultContext");
             services.AddDbContext<DefaultContext>(options => options.UseSqlServer(connectionString));
+
+            //Injection de dependence des DAO
+            services.AddTransient<DaoQuestion>();
+            services.AddTransient<DaoParagraphe>();
+            services.AddTransient<DaoReponse>();
 
             services.AddControllersWithViews();
         }

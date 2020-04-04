@@ -7,11 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace JeuxDontOnEstLeHero.BackOffice.Web.UI.Controllers
 {
-    public class QuestionController : BaseController
+    public class QuestionController : Controller
     {
-        public QuestionController(DefaultContext context) : base(context)
-        {
-        }
 
         public IActionResult Index()
         {

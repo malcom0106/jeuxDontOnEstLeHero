@@ -8,16 +8,17 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace JeuxDontOnEstLeHero.BackOffice.Web.UI.Controllers
 {
-    public class ParagrapheController : BaseController
+    public class ParagrapheController : Controller
     {
-        public ParagrapheController(DefaultContext context) : base(context)
+        private readonly DaoParagraphe _doaParagraphe = null;
+
+        public ParagrapheController(DaoParagraphe daoParagraphe)
         {
+            this._doaParagraphe = daoParagraphe;
         }
-        #region Méthodes Publiques
 
         public IActionResult Index()
-        {
-            DaoParagraphe daoParagraphe = new DaoParagraphe();
+        {            
 
             return View();
         }

@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using JeuxDontOnEstLeHero.BackOffice.Web.UI.Models;
+using RestSharp;
+using RestSharp.Authenticators;
+using Newtonsoft.Json.Linq;
 
 namespace JeuxDontOnEstLeHero.BackOffice.Web.UI.Controllers
 {
@@ -20,6 +23,18 @@ namespace JeuxDontOnEstLeHero.BackOffice.Web.UI.Controllers
 
         public IActionResult Index()
         {
+
+            var client = new RestClient("https://covid-19-coronavirus-statistics.p.rapidapi.com/v1/stats?country=France");
+            //client.Authenticator = new HttpBasicAuthenticator("username", "password");
+            var request = new RestRequest(Method.GET);
+            request.AddHeader("x-rapidapi-host", "covid-19-coronavirus-statistics.p.rapidapi.com");
+            request.AddHeader("x-rapidapi-key", "0326288ba9msh21286c3615c5e04p1021aejsn8d95c1cbc636");
+            IRestResponse response = client.Execute(request);
+
+            string details = (JObject.Parse(response.Content)["data"]["covid19Stats"]).ToString();
+            ViewBag.DataJson = details;
+
+
             return View();
         }
 

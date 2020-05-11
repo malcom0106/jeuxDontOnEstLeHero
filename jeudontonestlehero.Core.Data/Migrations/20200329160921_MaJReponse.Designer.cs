@@ -8,7 +8,7 @@ using jeudontonestlehero.Core.Data.Models;
 
 namespace jeudontonestlehero.Core.Data.Migrations
 {
-    [DbContext(typeof(DefaultContext))]
+    [DbContext(typeof(DefaultDBContext))]
     [Migration("20200329160921_MaJReponse")]
     partial class MaJReponse
     {

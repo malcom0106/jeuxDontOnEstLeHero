@@ -9,7 +9,7 @@ using jeudontonestlehero.Core.Data.Models;
 
 namespace jeudontonestlehero.Core.Data.Migrations
 {
-    [DbContext(typeof(DefaultContext))]
+    [DbContext(typeof(DefaultDBContext))]
     [Migration("20200327173227_premiereMigration")]
     partial class premiereMigration
     {

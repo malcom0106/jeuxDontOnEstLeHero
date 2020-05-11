@@ -9,9 +9,9 @@ using System.Text;
 
 namespace jeudontonestlehero.Core.Data
 {
-    class DefaultDesignTimeDbContextFactory : IDesignTimeDbContextFactory<DefaultContext>
+    class DefaultDesignTimeDbContextFactory : IDesignTimeDbContextFactory<DefaultDBContext>
     {
-        public DefaultContext CreateDbContext(string[] args)
+        public DefaultDBContext CreateDbContext(string[] args)
         {
             string path = Directory.GetCurrentDirectory();
 
@@ -24,10 +24,10 @@ namespace jeudontonestlehero.Core.Data
 
             var connectionString = config.GetConnectionString("DefaultContext");
 
-            DbContextOptionsBuilder<DefaultContext> optionBuilder = new DbContextOptionsBuilder<DefaultContext>();
+            DbContextOptionsBuilder<DefaultDBContext> optionBuilder = new DbContextOptionsBuilder<DefaultDBContext>();
             optionBuilder.UseSqlServer(connectionString);
 
-            return new DefaultContext(optionBuilder.Options);
+            return new DefaultDBContext(optionBuilder.Options);
         }
     }
 }

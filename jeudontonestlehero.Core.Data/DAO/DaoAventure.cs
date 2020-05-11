@@ -10,7 +10,7 @@ namespace jeudontonestlehero.Core.Data.DAO
 {
     public class DaoAventure : DaoAccess
     {
-        public DaoAventure(DefaultContext context) : base(context)
+        public DaoAventure(DefaultDBContext context) : base(context)
         {
         }
 

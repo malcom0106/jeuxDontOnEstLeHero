@@ -9,7 +9,7 @@ using jeudontonestlehero.Core.Data.Models;
 
 namespace jeudontonestlehero.Core.Data.Migrations
 {
-    [DbContext(typeof(DefaultContext))]
+    [DbContext(typeof(DefaultDBContext))]
     [Migration("20200329161908_MaJParagraphe")]
     partial class MaJParagraphe
     {

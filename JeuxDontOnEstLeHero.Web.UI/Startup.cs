@@ -26,7 +26,7 @@ namespace JeuxDontOnEstLeHero.Web.UI
         public void ConfigureServices(IServiceCollection services)
         {
             string connectionString = this.Configuration.GetConnectionString("DefaultContext");
-            services.AddDbContext<DefaultContext>(options=>options.UseSqlServer(connectionString));
+            services.AddDbContext<DefaultDBContext>(options=>options.UseSqlServer(connectionString));
 
             services.AddControllersWithViews();
 

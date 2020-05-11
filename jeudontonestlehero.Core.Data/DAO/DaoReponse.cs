@@ -9,7 +9,7 @@ namespace jeudontonestlehero.Core.Data.DAO
 {
     public class DaoReponse : DaoAccess
     {
-        public DaoReponse(DefaultContext context) : base(context)
+        public DaoReponse(DefaultDBContext context) : base(context)
         {
         }
 

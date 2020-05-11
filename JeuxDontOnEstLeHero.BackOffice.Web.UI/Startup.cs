@@ -36,7 +36,7 @@ namespace JeuxDontOnEstLeHero.BackOffice.Web.UI
             });
 
             string connectionString = this.Configuration.GetConnectionString("DefaultContext");
-            services.AddDbContext<DefaultContext>(options => options.UseSqlServer(connectionString));
+            services.AddDbContext<DefaultDBContext>(options => options.UseSqlServer(connectionString));
 
             //Injection de dependence des DAO
             services.AddTransient<DaoQuestion>();

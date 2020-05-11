@@ -10,7 +10,7 @@ namespace jeudontonestlehero.Core.Data.DAO
 {
     public class DaoParagraphe : DaoAccess
     {
-        public DaoParagraphe(DefaultContext context) : base(context)
+        public DaoParagraphe(DefaultDBContext context) : base(context)
         {
         }
 

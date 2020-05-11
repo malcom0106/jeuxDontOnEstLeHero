@@ -8,11 +8,11 @@ namespace jeudontonestlehero.Core.Data.DAO
     public class DaoAccess
     {
         #region Variable Globale
-        protected readonly DefaultContext _context = null;
+        protected readonly DefaultDBContext _context = null;
         #endregion
 
         #region Constructeur
-        public DaoAccess(DefaultContext context)
+        public DaoAccess(DefaultDBContext context)
         {
             this._context = context;
         }

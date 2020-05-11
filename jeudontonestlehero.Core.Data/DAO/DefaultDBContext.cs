@@ -5,14 +5,14 @@ using System.Text;
 
 namespace jeudontonestlehero.Core.Data.Models
 {
-    public class DefaultContext : DbContext
+    public class DefaultDBContext : DbContext
     {
         #region Constructeur
-        public DefaultContext(DbContextOptions options) : base(options)
+        public DefaultDBContext(DbContextOptions options) : base(options)
         {
         }
 
-        protected DefaultContext()
+        protected DefaultDBContext()
         {
         }
         #endregion

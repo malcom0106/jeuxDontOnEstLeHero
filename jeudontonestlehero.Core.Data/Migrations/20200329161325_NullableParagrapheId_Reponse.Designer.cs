@@ -9,7 +9,7 @@ using jeudontonestlehero.Core.Data.Models;
 
 namespace jeudontonestlehero.Core.Data.Migrations
 {
-    [DbContext(typeof(DefaultContext))]
+    [DbContext(typeof(DefaultDBContext))]
     [Migration("20200329161325_NullableParagrapheId_Reponse")]
     partial class NullableParagrapheId_Reponse
     {
